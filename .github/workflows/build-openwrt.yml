@@ -51,9 +51,9 @@ jobs:
         # "false" if necessary for your workflow
         android: true
         dotnet: true
-        haskell: true
-        large-packages: true
-        swap-storage: true
+#        haskell: true
+#        large-packages: true
+#        swap-storage: true
     
     - name: Initialization environment
       env:
