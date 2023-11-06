@@ -13,4 +13,4 @@ sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.con
 
 # other
 # rm -rf package/utils/{ucode,fbtest}
-# rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
