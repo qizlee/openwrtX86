@@ -38,22 +38,18 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@main
     - name: 释放磁盘空间
-      uses: jlumbroso/free-disk-space@main
-      with:
-        # this might remove tools that are actually needed,
-        # if set to "true" but frees about 6 GB
-        # tool-cache: true
-        # all of these default to true, but feel free to set to
-        # "false" if necessary for your workflow
-        android: true
-        dotnet: true
-        # haskell: true
-        # large-packages: true
-        # swap-storage: true
-    
+      run: |
+        echo $(df -a $1 | awk 'NR > 1 {avail+=$4} END {print avail}')
+# Option: Remove Android library
+        sudo rm -rf /usr/local/lib/android || true
+# Option: Remove .NET runtime
+        sudo rm -rf /usr/share/dotnet || true
+# Option: Remove Haskell runtime
+        sudo rm -rf /opt/ghc || true
+        sudo rm -rf /usr/local/.ghcup || true
+        echo $(df -a $1 | awk 'NR > 1 {avail+=$4} END {print avail}')
+        
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
