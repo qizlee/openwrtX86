@@ -20,7 +20,6 @@ on:
         default: 'false'
 
 env:
-# REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
@@ -51,9 +50,9 @@ jobs:
         # "false" if necessary for your workflow
         android: true
         dotnet: true
-#        haskell: true
-#        large-packages: true
-#        swap-storage: true
+        # haskell: true
+        # large-packages: true
+        # swap-storage: true
     
     - name: Initialization environment
       env:
@@ -107,7 +106,7 @@ jobs:
       id: package
       run: |
         cd openwrt
-# make defconfig
+        make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
